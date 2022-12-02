@@ -44,6 +44,7 @@ public class BookBO {
         bookDAO.delete(id);
     }
 
+
     public int getTotalBooks() {
         int sum = 0;
         for (Book book : getBooks()) {
