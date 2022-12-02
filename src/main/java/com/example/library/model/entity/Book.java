@@ -9,6 +9,7 @@ public class Book {
     private String author;
     private Integer category_id;
     private String category_name;
+    private Category category;
 
     public Book() {
     }
@@ -77,7 +78,13 @@ public class Book {
     public void setCategory_name(String category_name) {
         this.category_name = category_name;
     }
+    public Category getCategory() {
+        return category;
+    }
 
+    public void setCategory(Category category){
+        this.category = category;
+    }
     @Override
     public String toString() {
         return "Book{" +

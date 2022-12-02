@@ -3,10 +3,7 @@ package com.example.library.model.DAO;
 import com.example.library.model.entity.Borrower;
 import com.example.library.model.entity.User;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,4 +82,15 @@ public class BorrowerDAO {
         }
     }
 
+    public int deleteAllReader() throws ClassNotFoundException, SQLException {
+        int result = 0;
+        String sql = "Delete * From borrower";
+        try {
+            update = conn.prepareStatement(sql);
+            update.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

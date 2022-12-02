@@ -2,9 +2,7 @@ package com.example.library.model.DAO;
 
 import com.example.library.model.entity.Category;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,4 +69,63 @@ public class CategoryDAO {
         }
     }
 
+    public Category findCategory(String id) throws SQLException {
+        String sql = "Select * from category where id=?";
+
+        PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
+        pstm.setString(1, id);
+
+        ResultSet rs = pstm.executeQuery();
+
+        while (rs.next()) {
+            int _id = rs.getInt("id");
+            String name = rs.getString("name");
+            Category category = new Category(_id, name);
+            return category;
+        }
+        return null;
+    }
+
+    public ArrayList<Category> getAllCategory() throws SQLException {
+        ArrayList<Category> list = new ArrayList<Category>();
+        String sql = "Select * from Category";
+        PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
+        ResultSet rs = pstm.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            Category category = new Category();
+            category.setId(id);
+            category.setName(name);
+            list.add(category);
+        }
+        return list;
+    }
+
+    public int insertCategory(Category category) throws SQLException, ClassNotFoundException {
+        int result = 0;
+        String query = "INSERT INTO Category (name) VALUES (?)";
+        try {
+            update = conn.prepareStatement(query);
+            update.setString(1, category.getName());
+            update.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public int updateCategory(Category category) throws SQLException, ClassNotFoundException {
+        int result = 0;
+        String query = "Update Category set Name =? where id=? ";
+        try {
+            update = conn.prepareStatement(query);
+            update.setString(1, category.getName());
+            update.setFloat(2, category.getId());
+            update.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

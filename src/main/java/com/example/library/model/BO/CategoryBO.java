@@ -3,6 +3,8 @@ package com.example.library.model.BO;
 import com.example.library.model.DAO.CategoryDAO;
 import com.example.library.model.entity.Category;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryBO {
@@ -41,5 +43,21 @@ public class CategoryBO {
         return null;
     }
 
+    public Category findCategory(String id) throws ClassNotFoundException, SQLException {
+        return categoryDAO.findCategory(id);
+    }
 
+    public ArrayList<Category> listCategory() throws ClassNotFoundException, SQLException {
+        return categoryDAO.getAllCategory();
+    }
+
+    public int insertCategory(Category category) throws SQLException, ClassNotFoundException {
+        int result = 0;
+        result = categoryDAO.insertCategory(category);
+        return result;
+    }
+
+    public int updateCategory(Category category) throws ClassNotFoundException, SQLException {
+        return categoryDAO.updateCategory(category);
+    }
 }

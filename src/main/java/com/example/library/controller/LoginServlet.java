@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
         String username = (String)request.getSession().getAttribute("username");
         UserBO userBO = new UserBO();
         if(userBO.getUserByUsername(username) != null) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Dashboard");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/pages-dashboard.jsp");
             dispatcher.forward(request, response);
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/pages-login.jsp");
@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         if(userBO.checkAccount(username, password)) {
             request.getSession().setAttribute("username", username);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Dashboard");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/pages-dashboard.jsp");
             dispatcher.forward(request, response);
         } else {
             request.setAttribute("message", "Invalid username or password!");

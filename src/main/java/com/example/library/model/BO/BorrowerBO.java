@@ -4,6 +4,7 @@ package com.example.library.model.BO;
 import com.example.library.model.DAO.BorrowerDAO;
 import com.example.library.model.entity.Borrower;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class BorrowerBO {
@@ -27,5 +28,9 @@ public class BorrowerBO {
 
     public void delete(Integer id) {
         borrowerDAO.delete(id);
+    }
+
+    public void deleteAllReader() throws ClassNotFoundException, SQLException {
+        int result =  borrowerDAO.deleteAllReader();
     }
 }
