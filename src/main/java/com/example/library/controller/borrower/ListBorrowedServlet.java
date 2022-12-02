@@ -1,4 +1,4 @@
-package com.example.library.controller;
+package com.example.library.controller.borrower;
 
 import com.example.library.model.BO.BookBO;
 import com.example.library.model.BO.BorrowerBO;
@@ -17,13 +17,10 @@ public class ListBorrowedServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         BorrowerBO borrowerBO = new BorrowerBO();
 
-
         request.setAttribute("borrowers", borrowerBO.getBorrowers());
-
-        System.out.println("2222");
-        for(Borrower borrower : borrowerBO.getBorrowers()) {
-            System.out.println(borrower);
-        }
+        request.setAttribute("overs",borrowerBO.getBorrowersWithCondition("over"));
+        request.setAttribute("borroweds",borrowerBO.getBorrowersWithCondition("borrowed"));
+        request.setAttribute("returneds",borrowerBO.getBorrowersWithCondition("returned"));
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Listborrowed.jsp");
         dispatcher.forward(request, response);

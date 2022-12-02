@@ -133,18 +133,13 @@
       </a>
       <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="forms-elements.html">
-            <i class="bi bi-circle"></i><span>1</span>
+          <a href="ListBorrowed">
+            <i class="bi bi-circle"></i><span>Borrowers</span>
           </a>
         </li>
         <li>
-          <a href="forms-layouts.html">
-            <i class="bi bi-circle"></i><span>2</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-editors.html">
-            <i class="bi bi-circle"></i><span>3</span>
+          <a href="CreateBorrowed">
+            <i class="bi bi-circle"></i><span>New borrower</span>
           </a>
         </li>
       </ul>

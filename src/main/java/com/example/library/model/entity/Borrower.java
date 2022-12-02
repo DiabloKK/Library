@@ -8,6 +8,7 @@ public class Borrower {
     private String name;
     private String mssv;
     private Integer book_id;
+    private String book_name;
     private Date borrower_date;
     private Date deadline_date;
     private Date return_date;
@@ -91,6 +92,14 @@ public class Borrower {
         this.status = status;
     }
 
+    public String getBook_name() {
+        return book_name;
+    }
+
+    public void setBook_name(String book_name) {
+        this.book_name = book_name;
+    }
+
     @Override
     public String toString() {
         return "Borrower{" +
@@ -98,6 +107,7 @@ public class Borrower {
                 ", name='" + name + '\'' +
                 ", mssv='" + mssv + '\'' +
                 ", book_id=" + book_id +
+                ", book_name='" + book_name + '\'' +
                 ", borrower_date=" + borrower_date +
                 ", deadline_date=" + deadline_date +
                 ", return_date=" + return_date +

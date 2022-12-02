@@ -48,15 +48,17 @@ public class BorrowerDAO {
 
     public void save(Borrower borrower) {
         String query = "insert into borrower(name, mssv, book_id, borrower_date, deadline_date, return_date, status) values (?,?,?,?,?,?,?)";
+
         try {
             insert = conn.prepareStatement(query);
             insert.setString(1, borrower.getName());
             insert.setString(2, borrower.getMssv());
-            insert.setInt(3, borrower.getId());
+            insert.setInt(3, borrower.getBook_id());
             insert.setDate(4, borrower.getBorrower_date());
             insert.setDate(5, borrower.getDeadline_date());
             insert.setDate(6, borrower.getReturn_date());
             insert.setBoolean(7, borrower.isStatus());
+            System.out.println(insert);
             insert.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,12 +66,13 @@ public class BorrowerDAO {
     }
 
     public void update(Borrower borrower) {
-        String query = "update borrower return_date = ?, status = ? where id = ?";
+        String query = "update borrower set return_date = ?, status = ? where id = ?";
         try {
             update = conn.prepareStatement(query);
             update.setDate(1, borrower.getReturn_date());
             update.setBoolean(2, borrower.isStatus());
             update.setInt(3, borrower.getId());
+            System.out.println(update);
             update.execute();
         } catch (Exception e) {
             e.printStackTrace();

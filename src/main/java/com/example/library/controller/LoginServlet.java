@@ -39,6 +39,5 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/pages-login.jsp");
             dispatcher.forward(request, response);
         }
-
     }
 }

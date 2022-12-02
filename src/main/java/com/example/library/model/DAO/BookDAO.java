@@ -1,6 +1,7 @@
 package com.example.library.model.DAO;
 
 import com.example.library.model.entity.Book;
+import com.example.library.model.entity.Category;
 import com.example.library.model.entity.User;
 
 import java.sql.Connection;
