@@ -7,13 +7,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Dashboard - Library</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/Logodhbk.jpg" rel="icon">
-  <link href="assets/img/Logodhbk.jpg" rel="apple-touch-icon">
+  <link href="assets/img/logodhbk.jpg" rel="icon">
+  <link href="assets/img/logodhbk.jpg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -38,9 +38,9 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
   <div class="d-flex align-items-center justify-content-between">
-    <a href="index.jsp" class="logo d-flex align-items-center">
-      <img src="assets/img/Logodhbk.jpg" alt="">
-      <span class="d-none d-lg-block">Libray</span>
+    <a href="Dashboard" class="logo d-flex align-items-center">
+      <img id="logo" src="assets/img/logodhbk.jpg" alt="Logo">
+      <span class="d-none d-lg-block">Library</span>
     </a>
     <i class="bi bi-list toggle-sidebar-btn"></i>
   </div>
@@ -52,19 +52,19 @@
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
           <img src="assets/img/profile.png" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">NAME</span>
+          <span class="d-none d-md-block dropdown-toggle ps-2">${sessionScope.username}</span>
         </a>
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
-            <h6>NAME</h6>
+            <h6>${sessionScope.username}</h6>
           </li>
           <li>
             <hr class="dropdown-divider">
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+            <a class="dropdown-item d-flex align-items-center" href="Profile">
               <i class="bi bi-person"></i>
               <span>My Profile</span>
             </a>
@@ -74,7 +74,7 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="#">
+            <a class="dropdown-item d-flex align-items-center" href="Logout">
               <i class="bi bi-box-arrow-right"></i>
               <span>Sign Out</span>
             </a>
@@ -93,88 +93,30 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link " href="index.html">
+      <a class="nav-link " href="Dashboard">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span>Manage Book</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="components-alerts.html">
-            <i class="bi bi-circle"></i><span>Books</span>
-          </a>
-        </li>
-        <li>
-          <a href="components-accordion.html">
-            <i class="bi bi-circle"></i><span>New Book</span>
-          </a>
-        </li>
-        <li>
-          <a href="components-badges.html">
-            <i class="bi bi-circle"></i><span>Categories</span>
-          </a>
-        </li>
-        <li>
-          <a href="components-breadcrumbs.html">
-            <i class="bi bi-circle"></i><span>New Category</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span>Manage Borrower</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="forms-elements.html">
-            <i class="bi bi-circle"></i><span>1</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-layouts.html">
-            <i class="bi bi-circle"></i><span>2</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-editors.html">
-            <i class="bi bi-circle"></i><span>3</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
     <li class="nav-heading">Pages</li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="users-profile.html">
+      <a class="nav-link collapsed" href="Profile">
         <i class="bi bi-person"></i>
         <span>Profile</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-contact.html">
-        <i class="bi bi-envelope"></i>
-        <span>Contact</span>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-register.jsp">
+      <a class="nav-link collapsed" href="Register">
         <i class="bi bi-card-list"></i>
         <span>Register</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-login.jsp">
+      <a class="nav-link collapsed" href="Logout">
         <i class="bi bi-box-arrow-in-right"></i>
         <span>Logout</span>
       </a>
@@ -190,7 +132,7 @@
     <h1>Dashboard</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="Dashboard">Home</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
       </ol>
     </nav>
@@ -202,7 +144,7 @@
       <div class="col-lg-8">
         <div class="row">
 
-          <div class="col-xxl-4 col-md-6">
+          <div class="col-xxl-6 col-md-6">
             <div class="card info-card sales-card">
 
               <div class="card-body">
@@ -221,7 +163,7 @@
             </div>
           </div>
 
-          <div class="col-xxl-4 col-md-6">
+          <div class="col-xxl-6 col-md-6">
             <div class="card info-card revenue-card">
 
               <div class="filter">
@@ -232,7 +174,7 @@
                   </li>
 
                   <c:forEach var="category" items="${categories}">
-                      <li><li><p class="dropdown-item" >${category.name}</p></li></li>
+                    <li><li><p class="dropdown-item" >${category.name}</p></li></li>
                   </c:forEach>
 
                 </ul>
@@ -254,49 +196,13 @@
             </div>
           </div>
 
-          <div class="col-xxl-4 col-xl-12">
-
-            <div class="card info-card customers-card">
-
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title">Customers <span>| This Year</span></h5>
-
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-people"></i>
-                  </div>
-                  <div class="ps-3">
-                    <h6>1244</h6>
-                    <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
           <div class="col-12">
             <div class="card recent-sales overflow-auto">
 
               <div class="card-body">
                 <h5 class="card-title">Books</h5>
 
-                <table class="table table-borderless datatable">
+                <table class="table table-borderless datatable table-striped table-hover">
                   <thead>
                   <tr>
                     <th scope="col">Name</th>
@@ -307,18 +213,13 @@
                   </thead>
                   <tbody>
                   <c:forEach var="book" items="${books}">
-                      <tr>
-                          <td>${book.name}</td>
-                          <td><a href="#" class="text-primary"></a></td>
-                          <td>${book.author}</td>
-                          <td>${book.category_name}</td>
-                      </tr>
+                    <tr>
+                      <td>${book.name}</td>
+                      <td><img src="./assets/img/book/${book.image}" width="75px" height="75px"></td>
+                      <td>${book.author}</td>
+                      <td>${book.category_name}</td>
+                    </tr>
                   </c:forEach>
-                  </tr><tr>
-                    <td>Mat thu</td>
-                    <td><a href="#" class="text-primary"></a></td>
-                    <td>Khoa hoc ki thuat</td>
-                  </tr>
                   </tbody>
                 </table>
 
@@ -470,12 +371,6 @@
 
 </main><!-- End #main -->
 
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-  <div class="copyright">
-    &copy; Copyright <strong><span>HKQ</span></strong>
-  </div>
-</footer><!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

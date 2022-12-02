@@ -21,6 +21,22 @@ public class UserBO {
         userDAO.save(user);
     }
 
+    public void update(String firstName, String lastName, String phone, String username, Integer id) {
+        User user = getUserById(id);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setPhone(phone);
+        user.setUsername(username);
+        update(user);
+    }
+
+    public void update(String password, String username) {
+        User user = getUserByUsername(username);
+        user.setPassword(password);
+        update(user);
+    }
+
+
     public void update(User user) {
         userDAO.update(user);
     }
@@ -41,6 +57,15 @@ public class UserBO {
     public User getUserByUsername(String username) {
         for (User user : getUsers()) {
             if(user.getUsername().equals(username)){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public User getUserById(Integer id) {
+        for (User user : getUsers()) {
+            if(user.getId() == id){
                 return user;
             }
         }

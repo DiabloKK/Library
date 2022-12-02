@@ -60,7 +60,7 @@ public class BookDAO {
     }
 
     public void update(Book book) {
-        String query = "update book name = ?, amount = ?, image = ?, author = ?, category_id = ? where id = ?";
+        String query = "update book set name = ?, amount = ?, image = ?, author = ?, category_id = ? where id = ?";
         try {
             update = conn.prepareStatement(query);
             update.setString(1, book.getName());

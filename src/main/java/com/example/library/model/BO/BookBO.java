@@ -24,6 +24,13 @@ public class BookBO {
         }
         return books;
     }
+    public String getNameById(Integer id){
+        for (Book book: getBooks()) {
+            if(book.getId() == id) return  book.getName();
+        }
+        return null;
+    }
+
 
     public void save(Book book) {
         bookDAO.save(book);

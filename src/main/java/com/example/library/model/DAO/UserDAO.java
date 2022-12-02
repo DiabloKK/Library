@@ -61,7 +61,7 @@ public class UserDAO {
     }
 
     public void update(User user) {
-        String query = "update user password = ?, firstName = ?, lastName = ?, phone = ? where id = ?";
+        String query = "update user set password = ?, firstName = ?, lastName = ?, phone = ? where id = ?";
         try {
             update = conn.prepareStatement(query);
             update.setString(1, user.getPassword());
@@ -78,7 +78,7 @@ public class UserDAO {
     public void delete(Integer id) {
         String query = "delete from user where id = " + id;
         try {
-            conn.createStatement().executeQuery(query);
+            conn.createStatement().execute(query);
         } catch (Exception e) {
             e.printStackTrace();
         }

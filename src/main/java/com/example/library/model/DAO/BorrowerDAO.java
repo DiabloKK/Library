@@ -64,7 +64,7 @@ public class BorrowerDAO {
     }
 
     public void update(Borrower borrower) {
-        String query = "update borrower return_date = ?, status = ? where id = ?";
+        String query = "update borrower set return_date = ?, status = ? where id = ?";
         try {
             update = conn.prepareStatement(query);
             update.setDate(1, borrower.getReturn_date());

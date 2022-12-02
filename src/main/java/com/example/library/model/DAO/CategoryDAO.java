@@ -51,7 +51,7 @@ public class CategoryDAO {
     }
 
     public void update(Category category) {
-        String query = "update category name = ? where id = ?";
+        String query = "update category set name = ? where id = ?";
         try {
             update = conn.prepareStatement(query);
             update.setString(1, category.getName());

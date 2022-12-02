@@ -1,4 +1,4 @@
-package com.example.library.controller;
+package com.example.library.controller.user;
 
 import com.example.library.model.BO.UserBO;
 import com.example.library.model.entity.User;
@@ -13,6 +13,13 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String username = (String) request.getSession().getAttribute("username");
+
+        if(username != null) {
+            request.getSession().removeAttribute("username");
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages-register.jsp");
+        dispatcher.forward(request, response);
     }
 
     @Override
@@ -37,8 +44,7 @@ public class RegisterServlet extends HttpServlet {
             User user = new User(0,username, password, firstName, lastName, phone, role);
             userBO.save(user);
 
-            RequestDispatcher  dispatcher = request.getRequestDispatcher("/index.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("Dashboard");
         }
 
     }
