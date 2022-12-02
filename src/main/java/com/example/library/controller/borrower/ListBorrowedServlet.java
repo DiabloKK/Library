@@ -15,15 +15,23 @@ import java.io.IOException;
 public class ListBorrowedServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BorrowerBO borrowerBO = new BorrowerBO();
 
-        request.setAttribute("borrowers", borrowerBO.getBorrowers());
-        request.setAttribute("overs",borrowerBO.getBorrowersWithCondition("over"));
-        request.setAttribute("borroweds",borrowerBO.getBorrowersWithCondition("borrowed"));
-        request.setAttribute("returneds",borrowerBO.getBorrowersWithCondition("returned"));
+        String username = (String) request.getSession().getAttribute("username");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Listborrowed.jsp");
-        dispatcher.forward(request, response);
+        if(username != null) {
+            BorrowerBO borrowerBO = new BorrowerBO();
+
+            request.setAttribute("borrowers", borrowerBO.getBorrowers());
+            request.setAttribute("overs",borrowerBO.getBorrowersWithCondition("over"));
+            request.setAttribute("borroweds",borrowerBO.getBorrowersWithCondition("borrowed"));
+            request.setAttribute("returneds",borrowerBO.getBorrowersWithCondition("returned"));
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Listborrowed.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("Login");
+        }
+
 
     }
 

@@ -13,6 +13,10 @@ public class UsersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = (String) request.getSession().getAttribute("username");
         if(username != null) {
+
+            UserBO userBO = new UserBO();
+            request.setAttribute("users", userBO.getUsers());
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/users-view.jsp");
             dispatcher.forward(request, response);
 

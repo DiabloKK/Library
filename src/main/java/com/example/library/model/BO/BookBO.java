@@ -52,4 +52,16 @@ public class BookBO {
         return sum;
     }
 
+    public void deleteAllBook() {
+        bookDAO.deleteAllBook();
+    }
+
+    public Book getBookById(Integer id) {
+        for (Book book : getBooks()) {
+            if(book.getId() == id) {
+                return book;
+            }
+        }
+        return null;
+    }
 }

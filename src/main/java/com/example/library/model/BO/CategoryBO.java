@@ -42,4 +42,12 @@ public class CategoryBO {
     }
 
 
+    public Category getCategoryById(Integer id) {
+        for(Category category : getCategories()) {
+            if(category.getId() == id) {
+                return category;
+            }
+        }
+        return null;
+    }
 }

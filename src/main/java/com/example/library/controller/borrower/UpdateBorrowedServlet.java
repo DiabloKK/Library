@@ -15,12 +15,19 @@ import java.io.IOException;
 public class UpdateBorrowedServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BorrowerBO borrowerBO = new BorrowerBO();
-        Integer id = Integer.valueOf(request.getParameter("id"));
-        borrowerBO.updateStatusAndReturnDate(id);
 
-        response.sendRedirect(request.getContextPath() + "/ListBorrowed");
+        String username = (String) request.getSession().getAttribute("username");
 
+        if(username != null) {
+            BorrowerBO borrowerBO = new BorrowerBO();
+            Integer id = Integer.valueOf(request.getParameter("id"));
+            borrowerBO.updateStatusAndReturnDate(id);
+
+            response.sendRedirect(request.getContextPath() + "/ListBorrowed");
+
+        } else {
+            response.sendRedirect("Login");
+        }
     }
 
     @Override

@@ -14,11 +14,19 @@ import java.io.IOException;
 public class CreateBorrowedServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BookBO bookBO = new BookBO();
-        request.setAttribute("Books", bookBO.getBooks());
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/create-borrower.jsp");
-        dispatcher.forward(request, response);
+        String username = (String) request.getSession().getAttribute("username");
+
+        if(username != null) {
+            BookBO bookBO = new BookBO();
+            request.setAttribute("Books", bookBO.getBooks());
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/create-borrower.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("Login");
+        }
+
     }
 
     @Override

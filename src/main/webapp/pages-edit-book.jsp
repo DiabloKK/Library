@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: minhquan
+  Date: 30/11/2022
+  Time: 23:59
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -7,13 +14,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>User / View - Library</title>
+    <title>Edit Book - Library</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/logodhbk.jpg" rel="icon">
-    <link href="assets/img/logodhbk.jpg" rel="apple-touch-icon">
+    <link href="assets/img/apple-touch-icon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -31,12 +38,6 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <style>
-        .cursor {
-            cursor: pointer;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -45,7 +46,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="Dashboard" class="logo d-flex align-items-center">
-            <img id="logo" src="assets/img/logodhbk.jpg" alt="Logo">
+            <img id="logo" src="assets/img/apple-touch-icon.png" alt="Logo">
             <span class="d-none d-lg-block">Library</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -58,12 +59,12 @@
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="assets/img/profile.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">${sessionScope.username}</span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">${user.lastName}</span>
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>${sessionScope.username}</h6>
+                        <h6>${user.lastName}</h6>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -195,94 +196,106 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Dashboard</h1>
+        <h1>Edit book</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="Dashboard">Home</a></li>
-                <li class="breadcrumb-item">User</li>
-                <li class="breadcrumb-item active">View</li>
+                <li class="breadcrumb-item active">Edit book</li>
             </ol>
         </nav>
     </div>
 
-    <section class="section dashboard">
-        <div class="row">
 
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card recent-sales overflow-auto">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Users</h5>
-
-                                <table class="table table-borderless datatable table-striped table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Username</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Phone</th>
-                                        <th scope="col">Role</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach var="user" items="${users}">
-                                        <tr>
-                                            <th>${user.id}</th>
-                                            <td>${user.username}</td>
-                                            <td>${user.firstName}</td>
-                                            <td>${user.lastName}</td>
-                                            <td>${user.phone}</td>
-                                            <td>${user.role}</td>
-                                            <td>
-                                                <span onclick="handleDelete(${user.id})" class="badge bg-danger p-2 cursor" data-bs-toggle="modal" data-bs-target="#staticBackdrop">DELETE</span>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark"></h1>
                     </div>
                 </div>
+                <!-- /.row -->
             </div>
-
+            <!-- /.container-fluid -->
         </div>
-    </section>
+        <!-- /.content-header -->
+        <section class="content">
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Confirmation</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header" style="background-color: #0c63e4">
+                                <h3 class="card-title" style="color: white">Chỉnh sửa tên thể loại</h3>
+                            </div>
+                            <div class="row justify-content-center"
+                                 style="margin-top: 15px; margin-bottom: -15px;">
+                                <div style="color: red;"></div>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form" method="post"
+                                  action="${pageContext.request.contextPath}/EditBook"
+                                  enctype="multipart/form-data">
+
+                                <div class="card-body">
+
+                                    <input type="hidden" name="id" value="${book.getId().toString()}" />
+                                    <div class="form-group" style="padding-top: 10px">
+                                        <label>Tên sách</label> <input type="text" class="form-control"
+                                                                       id="name" name="name" value="${book.getName()}">
+                                    </div>
+                                    <div class="form-group" style="padding-top: 10px">
+                                        <label>Thể loại</label> <select name="category" id="category"
+                                                                        class="form-control"
+                                                                        data-selected="${book.getCategory().getName()}" required>
+                                        <!-- <option value="">Chọn 1 thể loại</option> -->
+                                        <c:forEach items="${categoryList}" var="category">
+                                            <option value="${Integer.toString(category.getId())}"
+                                                    <c:if test="${category.getId() == book.getCategory().getId()}">selected="true"</c:if>>${category.getName()}</option>
+                                        </c:forEach>
+                                    </select>
+                                    </div>
+                                    <div class="form-group" style="padding-top: 10px">
+                                        <label>Số lượng</label>
+                                        <input type="number" class="form-control" id="count" name="count" min="1"
+                                               value="${book.getAmount()}">
+                                    </div>
+                                    <div class="form-group" style="padding-top: 10px">
+                                        <label>Tên tác giả</label>
+                                        <input type="text" class="form-control"
+                                               id="author" name="author" value="${book.getAuthor()}">
+                                    </div>
+                                    <div class="form-group" style="padding-top: 20px">
+                                        <label>Choose a file</label>
+                                        <input type="file" name="multiPartServlet" />
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary ">Lưu</button>
+                                    <input type="button" value="Trở lại" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/ManageBook'">
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+
+                    </div>
+                    <!-- /.row -->
                 </div>
-                <div class="modal-body">
-                    Do you want delete user?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
-                    <a href="" id="yesBtn"><button type="button" class="btn btn-primary">YES</button></a>
-                </div>
+                <!-- /.container-fluid -->
             </div>
-        </div>
+        </section>
+        <!-- /.content -->
     </div>
 
 </main><!-- End #main -->
 
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<script type="text/javascript">
-    function handleDelete(id) {
-        document.getElementById("yesBtn").setAttribute("href", "Users/delete?id=" + id);
-    }
-</script>
 
 <!-- Vendor JS Files -->
 <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

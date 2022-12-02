@@ -104,22 +104,22 @@
       </a>
       <ul id="manageBook-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="components-alerts.html">
+          <a href="ManageBook">
             <i class="bi bi-circle"></i><span>Books</span>
           </a>
         </li>
         <li>
-          <a href="components-accordion.html">
+          <a href="AddBook">
             <i class="bi bi-circle"></i><span>New Book</span>
           </a>
         </li>
         <li>
-          <a href="components-badges.html">
+          <a href="ManageCategories">
             <i class="bi bi-circle"></i><span>Categories</span>
           </a>
         </li>
         <li>
-          <a href="components-breadcrumbs.html">
+          <a href="AddCategories">
             <i class="bi bi-circle"></i><span>New Category</span>
           </a>
         </li>
@@ -156,6 +156,7 @@
         </li>
       </ul>
     </li>
+
 
     <li class="nav-heading">Pages</li>
 

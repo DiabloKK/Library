@@ -84,4 +84,14 @@ public class BookDAO {
         }
     }
 
+    public void deleteAllBook() {
+        int result = 0;
+        String query = "Delete * From Book";
+        try {
+            conn.createStatement().executeQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

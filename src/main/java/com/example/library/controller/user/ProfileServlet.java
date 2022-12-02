@@ -19,6 +19,7 @@ public class ProfileServlet extends HttpServlet {
             UserBO userBO = new UserBO();
 
             User user = userBO.getUserByUsername(username);
+            request.setAttribute("user", user);
 
             String message = (String) request.getSession().getAttribute("message");
             if(message != null) {

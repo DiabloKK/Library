@@ -105,22 +105,22 @@
       </a>
       <ul id="manageBook-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="components-alerts.html">
+          <a href="ManageBook">
             <i class="bi bi-circle"></i><span>Books</span>
           </a>
         </li>
         <li>
-          <a href="components-accordion.html">
+          <a href="AddBook">
             <i class="bi bi-circle"></i><span>New Book</span>
           </a>
         </li>
         <li>
-          <a href="components-badges.html">
+          <a href="ManageCategories">
             <i class="bi bi-circle"></i><span>Categories</span>
           </a>
         </li>
         <li>
-          <a href="components-breadcrumbs.html">
+          <a href="AddCategories">
             <i class="bi bi-circle"></i><span>New Category</span>
           </a>
         </li>
@@ -275,7 +275,7 @@
                   <c:forEach var="book" items="${books}">
                       <tr>
                           <td>${book.name}</td>
-                          <td><img src="./assets/img/book/${book.image}" width="75px" height="75px"></td>
+                          <td><img src="Resources/img/products/${book.getImage()}" width="75px" height="75px"></td>
                           <td>${book.author}</td>
                           <td>${book.category_name}</td>
                       </tr>
