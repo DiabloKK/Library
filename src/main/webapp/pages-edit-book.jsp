@@ -239,36 +239,36 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form role="form" method="post"
-                                  action="${pageContext.request.contextPath}/EditBook"
+                                  action="EditBook"
                                   enctype="multipart/form-data">
 
                                 <div class="card-body">
 
-                                    <input type="hidden" name="id" value="${book.getId().toString()}" />
+                                    <input type="hidden" name="id" value="${book.id}" />
                                     <div class="form-group" style="padding-top: 10px">
                                         <label>Tên sách</label> <input type="text" class="form-control"
-                                                                       id="name" name="name" value="${book.getName()}">
+                                                                       id="name" name="name" value="${book.name}">
                                     </div>
                                     <div class="form-group" style="padding-top: 10px">
                                         <label>Thể loại</label> <select name="category" id="category"
                                                                         class="form-control"
-                                                                        data-selected="${book.getCategory().getName()}" required>
+                                                                        data-selected="${book.category_name}" required>
                                         <!-- <option value="">Chọn 1 thể loại</option> -->
                                         <c:forEach items="${categoryList}" var="category">
-                                            <option value="${Integer.toString(category.getId())}"
-                                                    <c:if test="${category.getId() == book.getCategory().getId()}">selected="true"</c:if>>${category.getName()}</option>
+                                            <option value="${category.id}"
+                                                    <c:if test="${category.id == book.category_id}">selected="true"</c:if>>${category.name}</option>
                                         </c:forEach>
                                     </select>
                                     </div>
                                     <div class="form-group" style="padding-top: 10px">
                                         <label>Số lượng</label>
                                         <input type="number" class="form-control" id="count" name="count" min="1"
-                                               value="${book.getAmount()}">
+                                               value="${book.amount}">
                                     </div>
                                     <div class="form-group" style="padding-top: 10px">
                                         <label>Tên tác giả</label>
                                         <input type="text" class="form-control"
-                                               id="author" name="author" value="${book.getAuthor()}">
+                                               id="author" name="author" value="${book.author}">
                                     </div>
                                     <div class="form-group" style="padding-top: 20px">
                                         <label>Choose a file</label>
@@ -277,7 +277,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>
-                                    <input type="button" value="Trở lại" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/ManageBook'">
+                                    <input type="button" value="Trở lại" class="btn btn-primary" onclick="location.href='ManageBook'">
                                 </div>
                             </form>
                         </div>
