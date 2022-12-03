@@ -60,15 +60,14 @@ public class BookDAO {
     }
 
     public void update(Book book) {
-        String query = "update book set name = ?, amount = ?, image = ?, author = ?, category_id = ? where id = ?";
+        String query = "update book set name = ?, amount = ?, author = ?, category_id = ? where id = ?";
         try {
             update = conn.prepareStatement(query);
             update.setString(1, book.getName());
             update.setInt(2, book.getAmount());
-            update.setString(3, book.getImage());
-            update.setString(4, book.getAuthor());
-            update.setInt(5, book.getCategory_id());
-            update.setInt(6 , book.getId());
+            update.setString(3, book.getAuthor());
+            update.setInt(4, book.getCategory_id());
+            update.setInt(5 , book.getId());
             update.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,20 +77,18 @@ public class BookDAO {
     public void delete(Integer id) {
         String query = "delete from book where id = " + id;
         try {
-            conn.createStatement().executeQuery(query);
+            conn.createStatement().execute(query);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void deleteAllBook() {
-        int result = 0;
-        String query = "Delete * From Book";
+        String query = "Delete * From book";
         try {
-            conn.createStatement().executeQuery(query);
+            conn.createStatement().execute(query);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }

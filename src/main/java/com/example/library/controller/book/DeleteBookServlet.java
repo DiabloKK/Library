@@ -17,11 +17,9 @@ public class DeleteBookServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
-
         String username = (String) request.getSession().getAttribute("username");
 
-        if(username != null) {
+        if (username != null) {
             Integer id = Integer.valueOf(request.getParameter("id"));
 
             if (id == null) {
@@ -35,7 +33,6 @@ public class DeleteBookServlet extends HttpServlet {
         } else {
             response.sendRedirect("Login");
         }
-
     }
 
     @Override

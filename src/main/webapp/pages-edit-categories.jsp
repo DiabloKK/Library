@@ -19,8 +19,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/Logodhbk.jpg" rel="icon">
-    <link href="assets/img/Logodhbk.jpg" rel="apple-touch-icon">
+    <link href="assets/img/logodhbk.jpg" rel="icon">
+    <link href="assets/img/logodhbk.jpg" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -193,7 +193,16 @@
 
 </aside>
 <main id="main" class="main">
-
+    <div class="pagetitle">
+        <h1>Edit Categories</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="Dashboard">Home</a></li>
+                <li class="breadcrumb-item"><a href="ManageCategories">Manage Categories</a> </li>
+                <li class="breadcrumb-item active">Edit categories</li>
+            </ol>
+        </nav>
+    </div>
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">

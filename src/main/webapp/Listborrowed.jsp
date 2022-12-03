@@ -12,8 +12,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/Logodhbk.jpg" rel="icon">
-    <link href="assets/img/Logodhbk.jpg" rel="apple-touch-icon">
+    <link href="assets/img/logodhbk.jpg" rel="icon">
+    <link href="assets/img/logodhbk.jpg" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -378,7 +378,7 @@
         const tables = document.querySelectorAll('.fixed-columns')
         tables.forEach((table, index) => {
             console.log(index, document.querySelector('#Option').selectedIndex)
-            if (index == document.querySelector('#Option').selectedIndex) {
+            if (index === document.querySelector('#Option').selectedIndex) {
                 table.classList.remove("hidden")
             } else {
                 table.classList.add('hidden')

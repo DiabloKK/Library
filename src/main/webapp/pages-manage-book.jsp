@@ -19,8 +19,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/apple-touch-icon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/img/logodhbk.jpg" rel="icon">
+    <link href="assets/img/logodhbk.jpg" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -298,14 +298,6 @@
 <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script src="assets/vendor/tinymce/tinymce.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
-
-<script src="Resources/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="Resources/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="Resources/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="Resources/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="Resources/js/adminlte.min.js"></script>
-
-
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>

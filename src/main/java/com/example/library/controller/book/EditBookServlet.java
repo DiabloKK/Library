@@ -59,23 +59,23 @@ public class EditBookServlet extends HttpServlet {
         Integer category_id = Integer.valueOf(request.getParameter("category"));
         Integer count = Integer.valueOf(request.getParameter("count"));
         String author = request.getParameter("author");
-        String file = request.getParameter("image");
-        String fileName = "";
-//        if (!file.equals("")) {
-            String savePath = getServletContext().getRealPath("/") + "assets/img/products";
-            File fileSaveDir = new File(savePath);
-            if (!fileSaveDir.exists()) {
-                fileSaveDir.mkdir();
-            }
+//        String file = request.getParameter("image");
+//        String fileName = "";
 
-            for (Part part : request.getParts()) {
-                fileName = getFileName(part);
-                part.write(savePath + File.separator + fileName);
-            }
+//        String savePath = getServletContext().getRealPath("/") + "Resources/img/products";
+//        File fileSaveDir = new File(savePath);
+//        if (!fileSaveDir.exists()) {
+//            fileSaveDir.mkdir();
+//        }
+//
+//        for (Part part : request.getParts()) {
+//            fileName = getFileName(part);
+//            part.write(savePath + File.separator + fileName);
+//        }
 
         Category category = categoryBO.getCategoryById(category_id);
 
-        Book book = new Book(id, name, count, fileName, author, category_id);
+        Book book = new Book(id, name, count, "", author, category_id);
 
         bookBO.update(book);
 

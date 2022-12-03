@@ -19,8 +19,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/apple-touch-icon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/img/logodhbk.jpg" rel="icon">
+    <link href="assets/img/logodhbk.jpg" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -270,10 +270,6 @@
                                         <label>Tên tác giả</label>
                                         <input type="text" class="form-control"
                                                id="author" name="author" value="${book.author}">
-                                    </div>
-                                    <div class="form-group" style="padding-top: 20px">
-                                        <label>Choose a file</label>
-                                        <input type="file" name="multiPartServlet"/>
                                     </div>
                                 </div>
                                 <div class="card-footer">

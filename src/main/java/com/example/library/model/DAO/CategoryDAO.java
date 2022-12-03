@@ -65,10 +65,9 @@ public class CategoryDAO {
     public void delete(Integer id) {
         String query = "delete from category where id = " + id;
         try {
-            conn.createStatement().executeQuery(query);
+            conn.createStatement().execute(query);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }

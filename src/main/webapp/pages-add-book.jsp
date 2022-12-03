@@ -19,8 +19,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/Logodhbk.jpg" rel="icon">
-    <link href="assets/img/Logodhbk.jpg" rel="apple-touch-icon">
+    <link href="assets/img/logodhbk.jpg" rel="icon">
+    <link href="assets/img/logodhbk.jpg" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -194,6 +194,16 @@
 </aside>
 
 <main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Add book</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="Dashboard">Home</a></li>
+                <li class="breadcrumb-item active">Add book</li>
+            </ol>
+        </nav>
+    </div>
+
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -253,7 +263,7 @@
                                 </div>
                                 <div class="form-group" style="padding-top: 20px">
                                     <label>Choose a file</label>
-                                    <input type="file" name="multiPartServlet" />
+                                    <input type="file" class="form-control" name="AddBook" required/>
 <%--                                    <form method="post" action="AddBook" enctype="multipart/form-data">--%>
 <%--                                        Choose a file: <input type="file" name="multiPartServlet" />--%>
 <%--                                        <input type="submit" value="Upload" />--%>
@@ -289,7 +299,6 @@
             <!-- /.container-fluid -->
         </div>
     </section>
-
 
 
 </main><!-- End #main -->

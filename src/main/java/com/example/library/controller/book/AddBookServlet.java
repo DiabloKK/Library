@@ -34,7 +34,7 @@ public class AddBookServlet extends HttpServlet {
 
         String username = (String) request.getSession().getAttribute("username");
 
-        if(username != null) {
+        if (username != null) {
             String errorString = "";
             List<Category> list = null;
 
@@ -47,7 +47,6 @@ public class AddBookServlet extends HttpServlet {
             if (request.getAttribute("errorString") != null) {
                 errorString = (String) request.getAttribute("errorString");
             }
-            // Lưu thông tin vào request attribute trước khi forward sang views.
             request.setAttribute("errorString", errorString);
             request.setAttribute("categoryList", list);
             request.getSession().setAttribute("Check", "AddBook");
@@ -56,8 +55,6 @@ public class AddBookServlet extends HttpServlet {
         } else {
             response.sendRedirect("Login");
         }
-
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -69,7 +66,7 @@ public class AddBookServlet extends HttpServlet {
         Integer count = Integer.valueOf(request.getParameter("count"));
         String author = request.getParameter("author");
 //		String path = getServletContext().getRealPath("/") + "Resources/images/";
-        String savePath = getServletContext().getRealPath("/") + "assets/img/products";
+        String savePath = getServletContext().getRealPath("/") + "Resources/img/products";
         File fileSaveDir = new File(savePath);
         if (!fileSaveDir.exists()) {
             fileSaveDir.mkdir();
@@ -80,14 +77,10 @@ public class AddBookServlet extends HttpServlet {
             fileName = getFileName(part);
             part.write(savePath + File.separator + fileName);
         }
-
-
-        Book book = new Book(0, name, count, fileName, author, category_id);
-
-        bookBO.save(book);
-
+        bookBO.save(new Book(0, name, count, fileName, author, category_id));
         request.setAttribute("errorString", "Thêm sách thành công");
-        doGet(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/ManageBook");
+        dispatcher.forward(request, response);
     }
     private String getFileName(Part part) {
         for (String content : part.getHeader("content-disposition").split(";")) {

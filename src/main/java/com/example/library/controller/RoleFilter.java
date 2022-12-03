@@ -31,6 +31,5 @@ public class RoleFilter implements Filter {
         } else {
             chain.doFilter(request, response);
         }
-
     }
 }
