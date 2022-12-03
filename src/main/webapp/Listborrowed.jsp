@@ -210,7 +210,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="Dashboard">Home</a></li>
-                <li class="breadcrumb-item active">Borrowers</li>
+                <li class="breadcrumb-item active">Borrowed books</li>
             </ol>
         </nav>
     </div>
