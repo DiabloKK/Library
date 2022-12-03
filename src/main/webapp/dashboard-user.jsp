@@ -215,7 +215,7 @@
                   <c:forEach var="book" items="${books}">
                     <tr>
                       <td>${book.name}</td>
-                      <td><img src="./assets/img/book/${book.image}" width="75px" height="75px"></td>
+                      <td><img src="Resources/img/products/${book.getImage()}" width="75px" height="75px"></td>
                       <td>${book.author}</td>
                       <td>${book.category_name}</td>
                     </tr>
@@ -280,7 +280,7 @@
                     trigger: 'item'
                   },
                   legend: {
-                    top: '5%',
+                    top: 0,
                     left: 'center'
                   },
                   series: [{
@@ -302,26 +302,16 @@
                     labelLine: {
                       show: false
                     },
-                    data: [{
-                      value: 1048,
-                      name: 'Search Engine'
-                    },
+                    data: [
+                      <c:forEach var="topCategory" items="${topCategories}" varStatus="status">
                       {
-                        value: 735,
-                        name: 'Direct'
-                      },
-                      {
-                        value: 580,
-                        name: 'Email'
-                      },
-                      {
-                        value: 484,
-                        name: 'Union Ads'
-                      },
-                      {
-                        value: 300,
-                        name: 'Video Ads'
+                        name: '${topCategory.name}',
+                        value: '${topCategory.value}'
                       }
+                      <c:if test="${!status.last}">
+                      ,
+                      </c:if>
+                      </c:forEach>
                     ]
                   }]
                 });
