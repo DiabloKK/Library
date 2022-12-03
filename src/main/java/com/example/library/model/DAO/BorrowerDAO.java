@@ -56,7 +56,7 @@ public class BorrowerDAO {
             insert = conn.prepareStatement(query);
             insert.setString(1, borrower.getName());
             insert.setString(2, borrower.getMssv());
-            insert.setInt(3, borrower.getId());
+            insert.setInt(3, borrower.getBook_id());
             insert.setDate(4, borrower.getBorrower_date());
             insert.setDate(5, borrower.getDeadline_date());
             insert.setDate(6, borrower.getReturn_date());

@@ -156,17 +156,17 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#manageBorrower-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Manage Borrower</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-menu-button-wide"></i><span>Manage borrowed book</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="manageBorrower-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="ListBorrowed">
-                        <i class="bi bi-circle"></i><span>Borrowers</span>
+                        <i class="bi bi-circle"></i><span>Borrowed books</span>
                     </a>
                 </li>
                 <li>
                     <a href="CreateBorrowed">
-                        <i class="bi bi-circle"></i><span>New borrower</span>
+                        <i class="bi bi-circle"></i><span>New borrowing</span>
                     </a>
                 </li>
             </ul>
@@ -216,54 +216,73 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Thêm người mượn sách</h1>
+        <h1>New borrowing</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="Dashboard">Home</a></li>
-                <li class="breadcrumb-item active">Thêm người mượn sách</li>
+                <li class="breadcrumb-item active">New borrowing</li>
             </ol>
         </nav>
     </div>
 
     <section>
-        <form class="card-body col-md-6 m-auto" action="SaveBorrowed" method="post">
-            <div class="form-row col-md-12 m-auto">
-                <div class="form-group col-md-12 m-2">
-                    <label for="inputName" class="mg-left">Họ và tên</label>
-                    <input type="text" class="form-control m-2" name="nameBorrowed" id="inputName"
-                           placeholder="Nhập họ và tên" required>
-                </div>
 
-                <div class="form-group col-md-12 m-2">
-                    <label for="inputMSSV" class="mg-left">MSSV</label>
-                    <input type="text" class="form-control m-2" id="inputMSSV" name="MSSV"
-                           placeholder="Nhập mã số sinh viên"
-                           onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
-                </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header" style="background-color: #0c63e4">
+                            <h3 class="card-title" style="color: white">New borrowing</h3>
+                        </div>
+                        <form  action="SaveBorrowed" method="post" style="margin: 20px;margin-top: 0px">
+                            <div class="form-row col-md-12 m-auto" >
+                                <div class="form-group " style="margin-top: 10px">
+                                    <label for="inputName" class="mg-left">Full name</label>
+                                    <input type="text" class="form-control " name="nameBorrowed" id="inputName"
+                                           placeholder="Nhập họ và tên" required>
+                                </div>
 
-                <div class="form-group col-md-12 m-2">
-                    <label for="inputNameBook" class="mg-left">Tên sách</label>
-                    <select id="inputNameBook" class="form-control m-2" name="idBook" onchange="changeSelected()">
-                        <c:forEach var="Book" items="${Books}">
-                            <option value=${Book.id}>${Book.name}</option>
-                        </c:forEach>
-                    </select>
+                                <div class="form-group col-md-12" style="margin-top: 10px">
+                                    <label for="inputMSSV" class="mg-left">Student ID</label>
+                                    <input type="text" class="form-control" id="inputMSSV" name="MSSV"
+                                           placeholder="Nhập mã số sinh viên"
+                                           onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                </div>
+
+                                <div class="form-group col-md-12 " style="margin-top: 10px">
+                                    <label for="inputNameBook" class="mg-left">Title</label>
+                                    <select id="inputNameBook" class="form-control" name="idBook" onchange="changeSelected()">
+                                        <c:forEach var="Book" items="${Books}">
+                                            <option value=${Book.id}>${Book.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-12" style="margin-top: 10px">
+                                    <label for="inputDeadline" class="mg-left">Borrowed time</label>
+                                    <select id="inputDeadline" class="form-control" name="duration">
+                                        <option selected>1 week</option>
+                                        <option>2 weeks</option>
+                                        <option>1 month</option>
+                                        <option>3 months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center gap-3">
+                                <input type="reset" class="btn btn-primary" value="Cancel"/>
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
+                        </form>
+                    </div>
+
+
                 </div>
-                <div class="form-group col-md-12 m-2">
-                    <label for="inputDeadline" class="mg-left">Hạn trả</label>
-                    <select id="inputDeadline" class="form-control m-2" name="duration">
-                        <option selected>1 week</option>
-                        <option>2 week</option>
-                        <option>1 month</option>
-                        <option>3 months</option>
-                    </select>
-                </div>
+                <!-- /.row -->
             </div>
-            <div class="d-flex justify-content-center gap-3">
-                <input type="reset" class="btn btn-primary" value="Cancel"/>
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-        </form>
+            <!-- /.container-fluid -->
+        </div>
+
     </section>
 
 
