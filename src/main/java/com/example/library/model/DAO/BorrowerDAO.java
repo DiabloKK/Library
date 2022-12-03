@@ -1,6 +1,8 @@
 package com.example.library.model.DAO;
 
 import com.example.library.model.entity.Borrower;
+import com.example.library.model.entity.TopBook;
+import com.example.library.model.entity.TopCategory;
 import com.example.library.model.entity.User;
 
 import java.sql.Connection;
@@ -8,6 +10,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class BorrowerDAO {
@@ -83,6 +87,46 @@ public class BorrowerDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public LinkedHashMap<Integer, Integer> getTopBookBorrowed() {
+        LinkedHashMap<Integer, Integer> top = new LinkedHashMap<>();
+        String query = "select count(book_id) as times, book_id from borrower group by book_id order by times desc limit 5;";
+        try {
+            ResultSet resultSet = conn.createStatement().executeQuery(query);
+            while (resultSet.next()) {
+                Integer id = resultSet.getInt("book_id");
+                Integer times = resultSet.getInt("times");
+                top.put(id, times);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return top;
+    }
+
+    public List<TopCategory> getTopCategoryBorrowed() {
+
+        List<TopCategory> topCategories = new ArrayList<>();
+
+        String query = "select category.name, count(category.name) as quantity from borrower left join book\n" +
+                "on borrower.book_id = book.id\n" +
+                "inner join category \n" +
+                "on book.category_id = category.id\n" +
+                "group by category.name limit 5";
+
+        try {
+            ResultSet resultSet = conn.createStatement().executeQuery(query);
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                Integer times = resultSet.getInt("quantity");
+                topCategories.add(new TopCategory(name, times));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return topCategories;
+
     }
 
 }

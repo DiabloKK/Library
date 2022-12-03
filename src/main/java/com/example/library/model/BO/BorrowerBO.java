@@ -4,19 +4,22 @@ package com.example.library.model.BO;
 import com.example.library.model.DAO.BorrowerDAO;
 import com.example.library.model.entity.Book;
 import com.example.library.model.entity.Borrower;
+import com.example.library.model.entity.TopBook;
+import com.example.library.model.entity.TopCategory;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.*;
 import java.sql.Date;
-import java.util.List;
 
 public class BorrowerBO {
     private BorrowerDAO borrowerDAO;
     private BookBO bookBO;
+    private CategoryBO categoryBO;
 
     public BorrowerBO() {
         borrowerDAO = new BorrowerDAO();
         bookBO = new BookBO();
+        categoryBO = new CategoryBO();
     }
 
     public List<Borrower> getBorrowers() {
@@ -126,4 +129,20 @@ public class BorrowerBO {
         }
         return null;
     }
+
+    public List<TopBook> getTopBookBorrowed(){
+        LinkedHashMap<Integer, Integer> top = borrowerDAO.getTopBookBorrowed();
+        List<TopBook> topBooks = new ArrayList<>();
+        top.forEach((key, value) -> {
+            Book book = bookBO.getBookById(key);
+            book.setCategory_name(categoryBO.getNameById(book.getCategory_id()));
+            topBooks.add(new TopBook(book, value));
+        });
+        return topBooks;
+    }
+
+    public List<TopCategory> getTopCategoryBorrowed() {
+        return borrowerDAO.getTopCategoryBorrowed();
+    }
+
 }

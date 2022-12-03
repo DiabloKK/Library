@@ -244,48 +244,15 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
+                  <c:forEach var="topBook" items="${topBooks}">
+                    <tr>
+                      <td><img src="Resources/img/products/${topBook.book.getImage()}" width="75px" height="75px"></td>
+                      <td><p class="text-primary fw-bold">${topBook.book.name}</p></td>
+                      <td>${topBook.book.author}</td>
+                      <td class="fw-bold">${topBook.book.category_name}</td>
+                      <td>${topBook.times}</td>
+                    </tr>
+                  </c:forEach>
                   </tbody>
                 </table>
 

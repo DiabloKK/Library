@@ -304,48 +304,15 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ten sach</a></td>
-                    <td>Tac gia</td>
-                    <td class="fw-bold">The loai</td>
-                    <td>So lan muon</td>
-                  </tr>
+                  <c:forEach var="topBook" items="${topBooks}">
+                    <tr>
+                      <td><img src="Resources/img/products/${topBook.book.getImage()}" width="75px" height="75px"></td>
+                      <td><p class="text-primary fw-bold">${topBook.book.name}</p></td>
+                      <td>${topBook.book.author}</td>
+                      <td class="fw-bold">${topBook.book.category_name}</td>
+                      <td>${topBook.times}</td>
+                    </tr>
+                  </c:forEach>
                   </tbody>
                 </table>
 
@@ -368,16 +335,17 @@
 
             <script>
               document.addEventListener("DOMContentLoaded", () => {
+
                 echarts.init(document.querySelector("#trafficChart")).setOption({
                   tooltip: {
                     trigger: 'item'
                   },
                   legend: {
-                    top: '5%',
+                    top: 0,
                     left: 'center'
                   },
                   series: [{
-                    name: 'Access From',
+                    name: 'Categories Form',
                     type: 'pie',
                     radius: ['40%', '70%'],
                     avoidLabelOverlap: false,
@@ -395,26 +363,16 @@
                     labelLine: {
                       show: false
                     },
-                    data: [{
-                      value: 1048,
-                      name: 'Search Engine'
-                    },
-                      {
-                        value: 735,
-                        name: 'Direct'
-                      },
-                      {
-                        value: 580,
-                        name: 'Email'
-                      },
-                      {
-                        value: 484,
-                        name: 'Union Ads'
-                      },
-                      {
-                        value: 300,
-                        name: 'Video Ads'
-                      }
+                    data: [
+                        <c:forEach var="topCategory" items="${topCategories}" varStatus="status">
+                        {
+                          name: '${topCategory.name}',
+                          value: '${topCategory.value}'
+                        }
+                        <c:if test="${!status.last}">
+                        ,
+                        </c:if>
+                        </c:forEach>
                     ]
                   }]
                 });
