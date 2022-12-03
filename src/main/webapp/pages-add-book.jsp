@@ -45,8 +45,8 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.jsp" class="logo d-flex align-items-center">
-            <img src="assets/img/Logodhbk.jpg" alt="">
+        <a href="Dashboard" class="logo d-flex align-items-center">
+            <img id="logo" src="assets/img/logodhbk.jpg" alt="Logo">
             <span class="d-none d-lg-block">Library</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -59,19 +59,19 @@
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="assets/img/profile.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">NAME</span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">${sessionScope.username}</span>
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>NAME</h6>
+                        <h6>${sessionScope.username}</h6>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        <a class="dropdown-item d-flex align-items-center" href="Profile">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>
@@ -81,7 +81,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center" href="Logout">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sign Out</span>
                         </a>
