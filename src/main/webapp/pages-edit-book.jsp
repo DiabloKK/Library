@@ -24,7 +24,8 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -94,7 +95,6 @@
     </nav>
 
 </header>
-
 <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -136,17 +136,17 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#manageBorrower-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Manage Borrower</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-menu-button-wide"></i><span>Manage borrowed book</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="manageBorrower-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="ListBorrowed">
-                        <i class="bi bi-circle"></i><span>Borrowers</span>
+                        <i class="bi bi-circle"></i><span>Borrowed books</span>
                     </a>
                 </li>
                 <li>
                     <a href="CreateBorrowed">
-                        <i class="bi bi-circle"></i><span>New borrower</span>
+                        <i class="bi bi-circle"></i><span>New borrowing</span>
                     </a>
                 </li>
             </ul>
@@ -244,7 +244,7 @@
 
                                 <div class="card-body">
 
-                                    <input type="hidden" name="id" value="${book.id}" />
+                                    <input type="hidden" name="id" value="${book.id}"/>
                                     <div class="form-group" style="padding-top: 10px">
                                         <label>Tên sách</label> <input type="text" class="form-control"
                                                                        id="name" name="name" value="${book.name}">
@@ -272,12 +272,13 @@
                                     </div>
                                     <div class="form-group" style="padding-top: 20px">
                                         <label>Choose a file</label>
-                                        <input type="file" name="multiPartServlet" />
+                                        <input type="file" name="multiPartServlet"/>
                                     </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>
-                                    <input type="button" value="Trở lại" class="btn btn-primary" onclick="location.href='ManageBook'">
+                                    <input type="button" value="Trở lại" class="btn btn-primary"
+                                           onclick="location.href='ManageBook'">
                                 </div>
                             </form>
                         </div>
@@ -295,7 +296,8 @@
 </main><!-- End #main -->
 
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
 <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

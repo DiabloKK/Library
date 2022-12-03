@@ -128,17 +128,17 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#manageBorrower-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span>Manage Borrower</span><i class="bi bi-chevron-down ms-auto"></i>
+        <i class="bi bi-menu-button-wide"></i><span>Manage borrowed book</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="manageBorrower-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
           <a href="ListBorrowed">
-            <i class="bi bi-circle"></i><span>Borrowers</span>
+            <i class="bi bi-circle"></i><span>Borrowed books</span>
           </a>
         </li>
         <li>
           <a href="CreateBorrowed">
-            <i class="bi bi-circle"></i><span>New borrower</span>
+            <i class="bi bi-circle"></i><span>New borrowing</span>
           </a>
         </li>
       </ul>
